@@ -1,15 +1,9 @@
 from pathlib import Path # Used to change filepaths
 import os
 import glob
-# We set up matplotlib, pandas, and the display function
-#%matplotlib inline
-import matplotlib as mpl
 import matplotlib.pyplot as plt
-from IPython.display import display
 import pandas as pd
 import numpy as np
-import csv
-import re
 
 # import Image from PIL so we can use it later
 from PIL import Image
@@ -36,7 +30,7 @@ print(os.listdir())
 image_paths = [Path(item) for i in [glob.glob('photo\\*.%s' % ext) for ext in ["jpg", "jpeg", "tiff", "tif"]] for item in i]
 
 # Load the csv file containing labels using pandas
-labels = pd.read_csv('photo/fleezData.csv', header = 0)
+labels = pd.read_csv('photo/fleezData.csv', header = 0)  # <--------------- look here should you change the csv from the default
 
 # Get image, resize then return in an array form
 '''Get the image from a given path, 
@@ -44,7 +38,7 @@ resize to a 2:1 ratio for even num of px in all of them,
 return it in a numpy array'''
 def get_image(path):
     img = Image.open(path)
-    image = img.resize((200, 100), Image.LANCZOS)
+    image = img.resize((200, 100), Image.LANCZOS)  # <--------------- look here should you change the csv from the default
     return np.array(image)
 
 # create features from a numpy array of an image
@@ -82,38 +76,12 @@ def create_feature_matrix():
 
 # Run create_feature_matrix on our dataframe of images
 try:
-    if os.path.getsize('photo/fleezData.csv') > 0:
+    if os.path.getsize('photo/fleezData.csv') > 0:  # <--------------- should you change the csv from the default
         print("Entering ze luup")
         feature_matrix = create_feature_matrix()
 
         # get shape of feature matrix
         print('Feature matrix shape is: ', feature_matrix.shape)
-
-    else:
-        def createCSV(path, writer):
-            text = re.sub(r'photo\\', '', str(path))
-            matchObj = re.match(
-                r'([a-zA-Z0-9]+|(B\_[a-zA-Z0-9\-]+\_[a-zA-Z0-9\-]+)|([a-zA-Z0-9\-]+\_[a-zA-Z0-9\-]+)(\_CostaNotExp)*)\_((ms|FF)[0-9\-A-Za-z]+(_ZN)*)\_([a-z])',
-                text)
-            try:
-                species = matchObj.group(1)
-                fleezId = matchObj.group(5)
-                view = matchObj.group(8)
-            except AttributeError:
-                species = ""
-                fleezId = ""
-                view = ""
-            writer.writerow([text, fleezId, species, view])
-
-
-        with open('photo/fleezData.csv', mode='w') as fleez:
-            fleez_writer = csv.writer(fleez, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-            fleez_writer.writerow(['FileName', 'FleezId', 'Species', 'View'])
-            # for loop over image paths
-            for img_path in image_paths:
-                createCSV(Path(img_path), fleez_writer)
-        print("youe fool. Entering ze luup after creating the csv my damn self because nobody helps me in this household")
-        feature_matrix = create_feature_matrix()
 except OSError as e:
     print("Corrupt File/Doest Not Exist")
 
@@ -128,7 +96,7 @@ print('PCA matrix shape is: ', fleez_pca.shape)
 
 # Split data into train and test sets here. Test size is 30% of the total data
 X_train, X_test, y_train, y_test = train_test_split(fleez_pca,
-                                                    labels['Species'].values,
+                                                    labels['Species'].values,  # <--------------- look here should you change the csv from the default
                                                     test_size=.3,
                                                     random_state=1234123)
 
