@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="61aa2095-324f-483f-9134-2df950fc85d0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/fleezLearn.py" beforeDir="false" afterPath="$PROJECT_DIR$/fleezLearn.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/makeDaCSV.py" beforeDir="false" afterPath="$PROJECT_DIR$/makeDaCSV.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/photo/B_species_21_ms1149_w - Copy.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/photo/fleezData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/photo/fleezData.csv" afterDir="false" />
-    </list>
+    <list default="true" id="61aa2095-324f-483f-9134-2df950fc85d0" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,8 +31,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/fleezLearn.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="149" column="9" lean-forward="true" selection-start-line="149" selection-start-column="9" selection-end-line="149" selection-end-column="9" />
+            <state relative-caret-position="374">
+              <caret line="139" column="1" selection-start-line="139" selection-start-column="1" selection-end-line="139" selection-end-column="1" />
               <folding>
                 <element signature="e#604#617#0" expanded="true" />
                 <element signature="e#2316#2440#1" />
@@ -244,7 +239,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1248" y="20" width="1294" height="1408" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20550162" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -336,8 +330,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/fleezLearn.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="149" column="9" lean-forward="true" selection-start-line="149" selection-start-column="9" selection-end-line="149" selection-end-column="9" />
+        <state relative-caret-position="374">
+          <caret line="139" column="1" selection-start-line="139" selection-start-column="1" selection-end-line="139" selection-end-column="1" />
           <folding>
             <element signature="e#604#617#0" expanded="true" />
             <element signature="e#2316#2440#1" />
