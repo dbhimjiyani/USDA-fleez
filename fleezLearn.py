@@ -8,21 +8,17 @@
 
 #side not please make sure you have keras installed (do a conda install keras -- eezy)
 
+import math
 import pickle
 from pathlib import Path
-from skimage import io
 import glob
-from skimage.transform import resize
 import pandas as pd
 import numpy as np
 from PIL import Image
 
-import matplotlib.pyplot as plt
-
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
-import tensorflow as tf
 import keras
 from keras.models import Sequential
 
@@ -122,19 +118,32 @@ model.summary()
 
 # Now we compile and train model
 model.compile(
+    optimizer='adam',loss='mean_squared_error'
     # set the loss as binary_crossentropy
-    loss=keras.losses.binary_crossentropy,
+    #loss=keras.losses.binary_crossentropy,
     # set the optimizer as stochastic gradient descent
-    optimizer=keras.optimizers.SGD(lr=0.001),
+    #optimizer=keras.optimizers.SGD(lr=0.001),
     # set the metric as accuracy
-    metrics=['accuracy']
+    #metrics=['accuracy']
 )
 
-# mock-train the model using the first ten observations of the train and test sets
+# train the model
 model.fit(
-    x_train[:10, :, :, :],
-    y_train[:10],
+    x_train,
+    y_train,
+    batch_size = 32,
+    nb_epoch=30,
+    shuffle=True,
     epochs=5,
     verbose=1,
-    validation_data=(x_test[:10, :, :, :], y_test[:10]) #hnnGH validate me zaddy
+    validation_data=(x_test, y_test) #hnnGH validate me zaddy
 )
+metrics = ['mean_squared_error']
+
+# evaluate the model
+scores = model.evaluate(x_train, y_train, verbose=0)
+print("Accuracy: " + str(scores) + "%")
+
+# save model and architecture to single file
+model.save("model.h5")
+print("Saved model to disk")
